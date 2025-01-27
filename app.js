@@ -3,6 +3,7 @@ dotenv.config();
 const express = require('express');
 const app = express();
 const connectToDb = require('./db/db');
+const morgan = require('morgan'); 
 
 // Import routes
 const categoryRoutes = require('./routes/category.routes');
@@ -13,6 +14,7 @@ const { searchItemsByName } = require('./controllers/search.controller'); // Imp
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan('combined'));
 
 // Connect to the database
 connectToDb();
