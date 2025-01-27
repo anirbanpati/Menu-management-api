@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 const subCategoryService = require('../services/subcategory.service');
 
+
 // Create SubCategory
 exports.createSubCategory = async (req, res) => {
     const errors = validationResult(req);
@@ -11,7 +12,7 @@ exports.createSubCategory = async (req, res) => {
     try {
         const { categoryId } = req.params;
         const savedSubCategory = await subCategoryService.createSubCategory(categoryId, req.body);
-        res.status(201).json(savedSubCategory);
+        res.status(201).json({ message: "Sub-category created successfully", response: savedSubCategory });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message });
     }
@@ -46,7 +47,7 @@ exports.getSubCategoryByNameOrId = async (req, res) => {
         if (!subCategory) {
             return res.status(404).json({ message: 'Sub-category not found' });
         }
-        res.status(200).json(subCategory);
+        res.status(200).json( subCategory);
     } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message });
     }
@@ -62,7 +63,7 @@ exports.editSubCategory = async (req, res) => {
     try {
         const { subCategoryId } = req.params;
         const updatedSubCategory = await subCategoryService.editSubCategory(subCategoryId, req.body);
-        res.status(200).json(updatedSubCategory);
+        res.status(200).json({ message: "Sub-category updated successfully", response: updatedSubCategory });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message });
     }

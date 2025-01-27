@@ -11,7 +11,7 @@ exports.createItem = async (req, res) => {
 
     try {
         const savedItem = await itemService.createItem(req.body);
-        res.status(201).json(savedItem);
+        res.status(201).json({ message: "Item created successfully", response: savedItem });
     } catch (error) {
         const statusCode = error.statusCode || 500;
         res.status(statusCode).json({ message: error.message });
@@ -83,7 +83,7 @@ exports.editItem = async (req, res) => {
     try {
         const { itemId } = req.params;
         const updatedItem = await itemService.editItem(itemId, req.body);
-        res.status(200).json(updatedItem);
+        res.status(200).json({ message: "Item updated successfully", response: updatedItem });
     } catch (error) {
         const statusCode = error.statusCode || 500;
         res.status(statusCode).json({ message: error.message });
