@@ -9,7 +9,7 @@ router.post(
     [
         param('categoryId').isMongoId().withMessage('Invalid Category ID format'),
         body('name').notEmpty().withMessage('Name is required'),
-        body('image').notEmpty().withMessage('Image is required'),
+        body('image').notEmpty().isURL().withMessage('Image is required'),
         body('description').notEmpty().withMessage('Description is required'),
         body('taxApplicability').isBoolean().withMessage('Tax Applicability must be a boolean')
     ],
@@ -44,7 +44,7 @@ router.put(
     [
         param('subCategoryId').isMongoId().withMessage('Invalid SubCategory ID format'),
         body('name').optional().notEmpty().withMessage('Name is required'),
-        body('image').optional().notEmpty().withMessage('Image is required'),
+        body('image').optional().isURL().notEmpty().withMessage('Image is required'),
         body('description').optional().notEmpty().withMessage('Description is required'),
         body('taxApplicability').optional().isBoolean().withMessage('Tax Applicability must be a boolean')
     ],

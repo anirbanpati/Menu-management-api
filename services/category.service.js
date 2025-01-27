@@ -1,4 +1,5 @@
 const Category = require('../models/category.model');
+const isImageURL = require('../utils/isImageURL');
 
 // Create Category
 exports.createCategory = async (categoryData) => {
@@ -13,9 +14,11 @@ exports.createCategory = async (categoryData) => {
         throw new Error('Required fields are missing');
     }
 
-     // Validate image URL
-     if (!isImageURL(image)) {
-        throw new Error('Invalid image URL');
+    // Validate image URL
+    if (!isImageURL(image)) {
+        const error = new Error('Invalid image URL');
+        error.statusCode = 400;
+        throw error;
     }
     // Create new category
     const newCategory = new Category({

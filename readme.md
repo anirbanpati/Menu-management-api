@@ -1,42 +1,3 @@
-## Running the Application Locally
-
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/anirbanpati/Menu-management-api
-   cd Menu-management-api
-   ```
-
-2. **Install dependencies:**
-   ```sh
-   npm install
-   ```
-
-3. **Set up the `.env` file:**
-   Create a `.env` file in the root directory and add the environment variables as described above.
-
-4. **Start the server:**
-   ```sh
-   npm start
-   ```
-
-5. **Access the API:**
-   Open your browser or API client (e.g., Postman) and navigate to `http://localhost:4000`.
-
-
-## Setting up the .env file
-
-Create a `.env` file in the root directory of your project and add the following environment variables:
-
-```properties
-PORT=4000
-DB_CONNECT=mongodb+srv://<username>:<password>@<cluster-url>/<dbname>?retryWrites=true&w=majority
-DB_NAME=menuManagement
-```
-
-Replace `<username>`, `<password>`, `<cluster-url>`, and `<dbname>` with your actual MongoDB credentials and database information.
-
-
-
 # Category Management API
 
 This API allows you to manage categories, subcategories, and items in your application. Below are the details of the available endpoints and their usage.
@@ -457,8 +418,123 @@ This API allows you to manage categories, subcategories, and items in your appli
       "subcategoryId": "subcategory_id",
       "__v": 0
     },
-    // ...other items matching the name
+   
   ]
   ```
 
+## Running the Application Locally
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/anirbanpati/Menu-management-api
+   cd Menu-management-api
+   ```
+
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+
+3. **Set up the `.env` file:**
+   Create a `.env` file in the root directory and add the environment variables as described below.
+
+4. **Start the server:**
+   ```sh
+   npm start
+   ```
+
+5. **Access the API:**
+   Open your browser or API client (e.g., Postman) and navigate to `http://localhost:4000`.
+
+## Setting up the .env file
+
+Create a `.env` file in the root directory of your project and add the following environment variables:
+
+```properties
+PORT=4000
+DB_CONNECT=mongodb://localhost:27017/menuManagement
+DB_NAME=menuManagement
+```
+
+For MongoDB Atlas, use the following format:
+
+```properties
+PORT=4000
+DB_CONNECT=mongodb+srv://<username>:<password>@<cluster-url>/<dbname>?retryWrites=true&w=majority
+DB_NAME=menuManagement
+```
+
+Replace `<username>`, `<password>`, `<cluster-url>`, and `<dbname>` with your actual MongoDB credentials and database information.
+
+## Setting up MongoDB
+
+### MongoDB Local
+
+1. **Download and install MongoDB:**
+   [MongoDB Download](https://www.mongodb.com/try/download/community)
+
+2. **Start the MongoDB server:**
+   ```sh
+   mongod
+   ```
+
+3. **Create a database:**
+   Open a new terminal and run:
+   ```sh
+   mongo
+   use menuManagement
+   ```
+
+### MongoDB Atlas
+
+1. **Create a MongoDB Atlas account:**
+   [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
+2. **Create a new cluster:**
+   Follow the instructions to create a new cluster.
+
+3. **Get the connection string:**
+   Go to the cluster's "Connect" section and get the connection string. Replace `<username>`, `<password>`, `<cluster-url>`, and `<dbname>` with your actual MongoDB credentials and database information.
+
+## Using Postman
+
+You can use Postman to test the API endpoints. Follow these steps:
+
+1. **Download and install Postman:**
+   [Postman Download](https://www.postman.com/downloads/)
+
+2. **Import the Postman collection:**
+   [Menu Management API Postman Collection](https://www.postman.com/interstellar-satellite-239368/menu-management-api/overview)
+
+3. **Set up the environment:**
+   Create a new environment in Postman and add the following variables:
+   - `baseUrl`: `http://localhost:4000`
+
+4. **Test the endpoints:**
+   Use the imported collection to test the API endpoints. Make sure to set the `baseUrl` variable in the environment.
+
+## Running the Application with Docker
+
+1. **Build the Docker image:**
+   ```sh
+   docker build -t menu-management-api .
+   ```
+
+2. **Run the Docker container:**
+   ```sh
+   docker run -d -p 4000:4000 --name menu-management-api menu-management-api
+   ```
+
+3. **Access the API:**
+   Open your browser or API client (e.g., Postman) and navigate to `http://localhost:4000`.
+
+## Running the Application with Docker Compose
+
+1. **Build and start the Docker containers:**
+   ```sh
+   docker-compose up --build
+   ```
+
+2. **Access the API:**
+   Open your browser or API client (e.g., Postman) and navigate to `http://localhost:4000`.
 

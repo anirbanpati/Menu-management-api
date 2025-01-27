@@ -28,6 +28,20 @@ exports.createItem = async (itemData) => {
         throw error;
     }
 
+    // Validate discount
+    if (discount > baseAmount) {
+        const error = new Error('Discount cannot be more than the base amount');
+        error.statusCode = 400;
+        throw error;
+    }
+
+    // Validate baseAmount and discount are non-negative
+    if (baseAmount < 0 || discount < 0) {
+        const error = new Error('Base amount and discount cannot be negative');
+        error.statusCode = 400;
+        throw error;
+    }
+
     // Calculate total amount
     const totalAmount = baseAmount - discount;
 
@@ -116,7 +130,7 @@ exports.editItem = async (itemId, itemData) => {
     const item = await Item.findById(itemId);
     if (!item) {
         const error = new Error('Item not found');
-        error.statusCode = 400;
+        error.statusCode = 404;
         throw error;
     }
 
@@ -161,11 +175,15 @@ exports.getItemByNameOrId = async (query) => {
     } else if (name) {
         item = await Item.find({ name: new RegExp(name, 'i') });
     } else {
-        throw new Error('ID or name is required');
+        const error = new Error('ID or name is required');
+        error.statusCode = 400;
+        throw error;
     }
 
     if (!item || (Array.isArray(item) && item.length === 0)) {
-        throw new Error('Item not found');
+        const error = new Error('Item not found');
+        error.statusCode = 404;
+        throw error;
     }
 
     return item;

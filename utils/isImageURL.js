@@ -1,8 +1,8 @@
 const isImageURL = (url) => {
-    try {
-        new URL(url);
+    const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
+    if (urlPattern.test(url)) {
         return /\.(jpg|jpeg|png|gif)$/i.test(url);
-    } catch (e) {
+    } else {
         return false;
     }
 };

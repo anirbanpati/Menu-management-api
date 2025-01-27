@@ -22,3 +22,7 @@ Thumbs.db
 *.ntvs*
 *.njsproj
 *.sln
+
+# Docker-specific files
+Dockerfile
+docker-compose.yml

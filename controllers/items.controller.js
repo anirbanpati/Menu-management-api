@@ -13,7 +13,8 @@ exports.createItem = async (req, res) => {
         const savedItem = await itemService.createItem(req.body);
         res.status(201).json(savedItem);
     } catch (error) {
-        res.status(500).json({ message: 'Server error', error: error.message });
+        const statusCode = error.statusCode || 500;
+        res.status(statusCode).json({ message: error.message });
     }
 };
 
@@ -37,7 +38,8 @@ exports.getItemsByCategory = async (req, res) => {
         const items = await itemService.getItemsByCategory(categoryId);
         res.status(200).json(items);
     } catch (error) {
-        res.status(500).json({ message: 'Server error', error: error.message });
+        const statusCode = error.statusCode || 500;
+        res.status(statusCode).json({ message: error.message });
     }
 };
 
@@ -51,7 +53,8 @@ exports.getItemsBySubCategory = async (req, res) => {
         const items = await itemService.getItemsBySubCategory(subcategoryId);
         res.status(200).json(items);
     } catch (error) {
-        res.status(500).json({ message: 'Server error', error: error.message });
+        const statusCode = error.statusCode || 500;
+        res.status(statusCode).json({ message: error.message });
     }
 };
 
@@ -65,7 +68,8 @@ exports.getItemByNameOrId = async (req, res) => {
         }
         res.status(200).json(item);
     } catch (error) {
-        res.status(500).json({ message: 'Server error', error: error.message });
+        const statusCode = error.statusCode || 500;
+        res.status(statusCode).json({ message: error.message });
     }
 };
 
@@ -81,7 +85,8 @@ exports.editItem = async (req, res) => {
         const updatedItem = await itemService.editItem(itemId, req.body);
         res.status(200).json(updatedItem);
     } catch (error) {
-        res.status(500).json({ message: 'Server error', error: error.message });
+        const statusCode = error.statusCode || 500;
+        res.status(statusCode).json({ message: error.message });
     }
 };
 

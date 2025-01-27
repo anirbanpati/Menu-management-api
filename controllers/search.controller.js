@@ -16,6 +16,7 @@ exports.searchItemsByName = async (req, res) => {
         }
         res.status(200).json(items);
     } catch (error) {
-        res.status(500).json({ message: 'Server error', error: error.message });
+        const statusCode = error.statusCode || 500;
+        res.status(statusCode).json({ message: error.message });
     }
 };

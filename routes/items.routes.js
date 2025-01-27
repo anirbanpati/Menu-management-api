@@ -7,9 +7,9 @@ const itemsController = require('../controllers/items.controller');
 router.post(
     '/create',
     [
-        body('name').notEmpty().withMessage('Name is required'),
-        body('image').notEmpty().withMessage('Image is required'),
-        body('description').notEmpty().withMessage('Description is required'),
+        body('name').notEmpty().withMessage('Name is required').isLength({ min: 3, max: 30 }).withMessage('Name must be between 3 and 30 characters'),
+        body('image').isURL().notEmpty().withMessage('Image is required'),
+        body('description').notEmpty().withMessage('Description is required').isLength({ min: 3, max: 100 }).withMessage('Description must be between 3 and 100 characters'),
         body('taxApplicability').isBoolean().withMessage('Tax Applicability must be a boolean'),
         body('tax').optional().isNumeric().withMessage('Tax must be a number'),
         body('baseAmount').isNumeric().withMessage('Base Amount is required'),
@@ -56,9 +56,9 @@ router.put(
     '/:itemId',
     [
         param('itemId').isMongoId().withMessage('Invalid Item ID format'),
-        body('name').optional().notEmpty().withMessage('Name is required'),
+        body('name').optional().isURL().notEmpty().withMessage('Name is required').isLength({ min: 3, max: 30 }).withMessage('Name must be between 3 and 30 characters'),
         body('image').optional().notEmpty().withMessage('Image is required'),
-        body('description').optional().notEmpty().withMessage('Description is required'),
+        body('description').optional().notEmpty().withMessage('Description is required'). isLength({ min: 3, max: 100 }).withMessage('Description must be between 3 and 100 characters'),
         body('baseAmount').optional().isNumeric().withMessage('Base Amount is required'),
         body('discount').optional().isNumeric().withMessage('Discount is required'),
         body('categoryId').optional().isMongoId().withMessage('Invalid Category ID format'),

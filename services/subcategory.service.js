@@ -1,5 +1,6 @@
 const SubCategory = require('../models/subcategory.model');
 const Category = require('../models/category.model');
+const isImageURL = require('../utils/isImageURL');
 
 // Create SubCategory
 exports.createSubCategory = async (categoryId, subCategoryData) => {
