@@ -50,7 +50,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "taxType": "percentage",
       "__v": 0
     },
-    // ...other categories
+    
   ]
   ```
 
@@ -149,7 +149,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "category": "category_id",
       "__v": 0
     },
-    // ...other subcategories
+
   ]
   ```
 
@@ -170,7 +170,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "category": "category_id",
       "__v": 0
     },
-    // ...other subcategories under the category
+   
   ]
   ```
 
@@ -280,7 +280,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "subcategoryId": "subcategory_id",
       "__v": 0
     },
-    // ...other items
+  
   ]
   ```
 
@@ -305,7 +305,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "subcategoryId": "subcategory_id",
       "__v": 0
     },
-    // ...other items under the category
+   
   ]
   ```
 
@@ -330,7 +330,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "subcategoryId": "subcategory_id",
       "__v": 0
     },
-    // ...other items under the subcategory
+   
   ]
   ```
 
@@ -549,4 +549,6 @@ You can use Postman to test the API endpoints. Follow these steps:
 
 2. **Access the API:**
    Open your browser or API client (e.g., Postman) and navigate to `http://localhost:4000`.
+
+
 
