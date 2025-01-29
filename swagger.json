@@ -1,0 +1,471 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Menu Management API",
+    "description": "API documentation for Category Management"
+  },
+  "host": "localhost:4000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/category/create": {
+      "post": {
+        "summary": "Create a new category",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Category object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category created successfully"
+          }
+        }
+      }
+    },
+    "/category/all": {
+      "get": {
+        "summary": "Get all categories",
+        "responses": {
+          "200": {
+            "description": "List of categories",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/category/search": {
+      "get": {
+        "summary": "Get category by name or ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category details",
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        }
+      }
+    },
+    "/category/{id}": {
+      "put": {
+        "summary": "Edit a category",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Category object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category updated successfully"
+          }
+        }
+      }
+    },
+    "/subcategory/create/{categoryId}": {
+      "post": {
+        "summary": "Create a new subcategory",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "SubCategory object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SubCategory"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SubCategory created successfully"
+          }
+        }
+      }
+    },
+    "/subcategory/all": {
+      "get": {
+        "summary": "Get all subcategories",
+        "responses": {
+          "200": {
+            "description": "List of subcategories",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubCategory"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subcategory/category/{categoryId}": {
+      "get": {
+        "summary": "Get subcategories by category",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of subcategories under the category",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubCategory"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subcategory/search": {
+      "get": {
+        "summary": "Get subcategory by name or ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SubCategory details",
+            "schema": {
+              "$ref": "#/definitions/SubCategory"
+            }
+          }
+        }
+      }
+    },
+    "/subcategory/{subCategoryId}": {
+      "put": {
+        "summary": "Edit a subcategory",
+        "parameters": [
+          {
+            "name": "subCategoryId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "SubCategory object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SubCategory"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SubCategory updated successfully"
+          }
+        }
+      }
+    },
+    "/item/create": {
+      "post": {
+        "summary": "Create a new item",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Item object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Item"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item created successfully"
+          }
+        }
+      }
+    },
+    "/item/all": {
+      "get": {
+        "summary": "Get all items",
+        "responses": {
+          "200": {
+            "description": "List of items",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Item"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/item/category/{categoryId}": {
+      "get": {
+        "summary": "Get items by category",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of items under the category",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Item"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/item/subcategory/{subcategoryId}": {
+      "get": {
+        "summary": "Get items by subcategory",
+        "parameters": [
+          {
+            "name": "subcategoryId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of items under the subcategory",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Item"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/item/search": {
+      "get": {
+        "summary": "Get item by name or ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item details",
+            "schema": {
+              "$ref": "#/definitions/Item"
+            }
+          }
+        }
+      }
+    },
+    "/item/{itemId}": {
+      "put": {
+        "summary": "Edit an item",
+        "parameters": [
+          {
+            "name": "itemId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Item object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Item"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item updated successfully"
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Search items by name",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of items",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Item"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "taxApplicable": {
+          "type": "boolean"
+        },
+        "tax": {
+          "type": "number"
+        },
+        "taxType": {
+          "type": "string"
+        }
+      }
+    },
+    "SubCategory": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "taxApplicable": {
+          "type": "boolean"
+        },
+        "tax": {
+          "type": "number"
+        },
+        "category": {
+          "type": "string"
+        }
+      }
+    },
+    "Item": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "taxApplicable": {
+          "type": "boolean"
+        },
+        "tax": {
+          "type": "number"
+        },
+        "baseAmount": {
+          "type": "number"
+        },
+        "discount": {
+          "type": "number"
+        },
+        "totalAmount": {
+          "type": "number"
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "subcategoryId": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

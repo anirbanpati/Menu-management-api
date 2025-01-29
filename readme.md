@@ -1,4 +1,4 @@
-# Category Management API
+# Menu Management API
 
 This API allows you to manage categories, subcategories, and items in your application. Below are the details of the available endpoints and their usage.
 
@@ -114,7 +114,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "SubCategory Name",
     "image": "Image URL",
     "description": "SubCategory Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 5
   }
   ```
@@ -125,7 +125,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "SubCategory Name",
     "image": "Image URL",
     "description": "SubCategory Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 5,
     "category": "category_id",
     "__v": 0
@@ -144,7 +144,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "name": "SubCategory Name",
       "image": "Image URL",
       "description": "SubCategory Description",
-      "taxApplicability": true,
+      "taxApplicable": true,
       "tax": 5,
       "category": "category_id",
       "__v": 0
@@ -165,7 +165,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "name": "SubCategory Name",
       "image": "Image URL",
       "description": "SubCategory Description",
-      "taxApplicability": true,
+      "taxApplicable": true,
       "tax": 5,
       "category": "category_id",
       "__v": 0
@@ -188,7 +188,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "SubCategory Name",
     "image": "Image URL",
     "description": "SubCategory Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 5,
     "category": "category_id",
     "__v": 0
@@ -205,7 +205,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "Updated SubCategory Name",
     "image": "Updated Image URL",
     "description": "Updated SubCategory Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 10
   }
   ```
@@ -216,7 +216,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "Updated SubCategory Name",
     "image": "Updated Image URL",
     "description": "Updated SubCategory Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 10,
     "category": "category_id",
     "__v": 0
@@ -233,7 +233,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "Item Name",
     "image": "Image URL",
     "description": "Item Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 5,
     "baseAmount": 100,
     "discount": 10,
@@ -248,7 +248,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "Item Name",
     "image": "Image URL",
     "description": "Item Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 5,
     "baseAmount": 100,
     "discount": 10,
@@ -271,7 +271,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "name": "Item Name",
       "image": "Image URL",
       "description": "Item Description",
-      "taxApplicability": true,
+      "taxApplicable": true,
       "tax": 5,
       "baseAmount": 100,
       "discount": 10,
@@ -296,7 +296,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "name": "Item Name",
       "image": "Image URL",
       "description": "Item Description",
-      "taxApplicability": true,
+      "taxApplicable": true,
       "tax": 5,
       "baseAmount": 100,
       "discount": 10,
@@ -321,7 +321,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "name": "Item Name",
       "image": "Image URL",
       "description": "Item Description",
-      "taxApplicability": true,
+      "taxApplicable": true,
       "tax": 5,
       "baseAmount": 100,
       "discount": 10,
@@ -348,7 +348,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "Item Name",
     "image": "Image URL",
     "description": "Item Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 5,
     "baseAmount": 100,
     "discount": 10,
@@ -369,7 +369,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "Updated Item Name",
     "image": "Updated Image URL",
     "description": "Updated Item Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 10,
     "baseAmount": 120,
     "discount": 20,
@@ -384,7 +384,7 @@ This API allows you to manage categories, subcategories, and items in your appli
     "name": "Updated Item Name",
     "image": "Updated Image URL",
     "description": "Updated Item Description",
-    "taxApplicability": true,
+    "taxApplicable": true,
     "tax": 10,
     "baseAmount": 120,
     "discount": 20,
@@ -409,7 +409,7 @@ This API allows you to manage categories, subcategories, and items in your appli
       "name": "Item Name",
       "image": "Image URL",
       "description": "Item Description",
-      "taxApplicability": true,
+      "taxApplicable": true,
       "tax": 5,
       "baseAmount": 100,
       "discount": 10,
@@ -445,6 +445,18 @@ This API allows you to manage categories, subcategories, and items in your appli
 
 5. **Access the API:**
    Open your browser or API client (e.g., Postman) and navigate to `http://localhost:4000`.
+
+## Accessing the API on AWS EC2
+
+You can also access the API deployed on AWS EC2 at the following link:
+
+[http://ec2-13-203-59-179.ap-south-1.compute.amazonaws.com:3000/](http://ec2-13-203-59-179.ap-south-1.compute.amazonaws.com:3000/)
+
+## Accessing the API Documentation
+
+You can access the API documentation using Swagger UI at the following link:
+
+[http://localhost:4000/api-docs](http://localhost:4000/api-docs)
 
 ## Setting up the .env file
 

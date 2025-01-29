@@ -116,6 +116,20 @@ exports.editItem = async (itemId, itemData) => {
         throw error;
     }
 
+    // Validate discount
+    if (discount > baseAmount) {
+        const error = new Error('Discount cannot be more than the base amount');
+        error.statusCode = 400;
+        throw error;
+    }
+
+    // Validate baseAmount and discount are non-negative
+    if (baseAmount < 0 || discount < 0) {
+        const error = new Error('Base amount and discount cannot be negative');
+        error.statusCode = 400;
+        throw error;
+    }
+
     // Validate image URL
     if (!isImageURL(image)) {
         const error = new Error('Invalid image URL');
@@ -131,6 +145,19 @@ exports.editItem = async (itemId, itemData) => {
     if (!item) {
         const error = new Error('Item not found');
         error.statusCode = 404;
+        throw error;
+    }
+
+    // Check if category or subcategory exists
+    if (categoryId && !mongoose.Types.ObjectId.isValid(categoryId)) {
+        const error = new Error('Invalid Category ID');
+        error.statusCode = 400;
+        throw error;
+    }
+
+    if (subcategoryId && !mongoose.Types.ObjectId.isValid(subcategoryId)) {
+        const error = new Error('Invalid SubCategory ID');
+        error.statusCode = 400;
         throw error;
     }
 
