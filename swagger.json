@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Menu Management API",
-    "description": "API documentation for Category Management"
+    "description": "API documentation for Menu Management"
   },
   "host": "localhost:4000",
   "basePath": "/",
@@ -11,6 +11,7 @@
   "paths": {
     "/category/create": {
       "post": {
+        "tags": ["Category"],
         "summary": "Create a new category",
         "parameters": [
           {
@@ -32,6 +33,7 @@
     },
     "/category/all": {
       "get": {
+        "tags": ["Category"],
         "summary": "Get all categories",
         "responses": {
           "200": {
@@ -48,6 +50,7 @@
     },
     "/category/search": {
       "get": {
+        "tags": ["Category"],
         "summary": "Get category by name or ID",
         "parameters": [
           {
@@ -75,6 +78,7 @@
     },
     "/category/{id}": {
       "put": {
+        "tags": ["Category"],
         "summary": "Edit a category",
         "parameters": [
           {
@@ -102,6 +106,7 @@
     },
     "/subcategory/create/{categoryId}": {
       "post": {
+        "tags": ["SubCategory"],
         "summary": "Create a new subcategory",
         "parameters": [
           {
@@ -129,6 +134,7 @@
     },
     "/subcategory/all": {
       "get": {
+        "tags": ["SubCategory"],
         "summary": "Get all subcategories",
         "responses": {
           "200": {
@@ -145,6 +151,7 @@
     },
     "/subcategory/category/{categoryId}": {
       "get": {
+        "tags": ["SubCategory"],
         "summary": "Get subcategories by category",
         "parameters": [
           {
@@ -169,6 +176,7 @@
     },
     "/subcategory/search": {
       "get": {
+        "tags": ["SubCategory"],
         "summary": "Get subcategory by name or ID",
         "parameters": [
           {
@@ -196,6 +204,7 @@
     },
     "/subcategory/{subCategoryId}": {
       "put": {
+        "tags": ["SubCategory"],
         "summary": "Edit a subcategory",
         "parameters": [
           {
@@ -223,6 +232,7 @@
     },
     "/item/create": {
       "post": {
+        "tags": ["Item"],
         "summary": "Create a new item",
         "parameters": [
           {
@@ -244,6 +254,7 @@
     },
     "/item/all": {
       "get": {
+        "tags": ["Item"],
         "summary": "Get all items",
         "responses": {
           "200": {
@@ -260,6 +271,7 @@
     },
     "/item/category/{categoryId}": {
       "get": {
+        "tags": ["Item"],
         "summary": "Get items by category",
         "parameters": [
           {
@@ -284,6 +296,7 @@
     },
     "/item/subcategory/{subcategoryId}": {
       "get": {
+        "tags": ["Item"],
         "summary": "Get items by subcategory",
         "parameters": [
           {
@@ -308,6 +321,7 @@
     },
     "/item/search": {
       "get": {
+        "tags": ["Item"],
         "summary": "Get item by name or ID",
         "parameters": [
           {
@@ -335,6 +349,7 @@
     },
     "/item/{itemId}": {
       "put": {
+        "tags": ["Item"],
         "summary": "Edit an item",
         "parameters": [
           {
@@ -362,6 +377,7 @@
     },
     "/search": {
       "get": {
+        "tags": ["Search"],
         "summary": "Search items by name",
         "parameters": [
           {
